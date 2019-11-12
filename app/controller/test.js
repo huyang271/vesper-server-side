@@ -3,9 +3,9 @@
 const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
-  async index() {
+  async find() {
     const { ctx, service } = this;
-    const rs = await service.test.find('hyd');
+    const rs = await service.test.find(ctx.query.name);
     ctx.body = rs;
   }
 }
